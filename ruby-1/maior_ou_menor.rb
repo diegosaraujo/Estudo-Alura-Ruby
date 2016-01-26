@@ -1,5 +1,13 @@
 def da_boas_vindas
-    puts "Olá bem vindo ao jogo de adivinhação"
+    puts
+    puts "        P  /_\  P                              "
+    puts "       /_\_|_|_/_\                             "
+    puts "   n_n | ||. .|| | n_n         Bem vindo ao    "
+    puts "   |_|_|nnnn nnnn|_|_|     Jogo de Adivinhação!"
+    puts "  |' '  |  |_|  |'  ' |                        "
+    puts "  |_____| ' _ ' |_____|                        "
+    puts "        \__|_|__/                              "
+    puts
     puts "Qual é o seu nome?"
     nome = gets.strip
     puts "\n\n"
@@ -8,7 +16,9 @@ def da_boas_vindas
 end
 
 def pede_dificuldade
-   puts "Qual o nível de dificuldade que deseja? (1 fácil, 5 difícil)"
+    puts "Qual o nível de dificuldade?"
+    puts "(1) Muito fácil (2) Fácil (3) Normal (4) Difícil (5) Impossível"
+    puts "Escolha: "
    dificuldade = gets.to_i
 end
 
@@ -43,7 +53,7 @@ end
 def verifica_se_acertou(numero_secreto, chute)
     acertou = numero_secreto == chute
     if acertou
-     puts "Acertou!"
+     ganhou
      return true
     end
      maior = numero_secreto > chute
@@ -61,7 +71,6 @@ def joga (nome, dificuldade)
   pontos_ate_agora = 1000
   limite_tentativas = 5
   chutes = []
-  #total_de_chutes = 0
 
   for tentativas in 1..limite_tentativas
       chute = pede_um_numero chutes, tentativas, limite_tentativas
@@ -82,6 +91,28 @@ def nao_quer_jogar?
   puts "Deseja jogar novamente? (S/N)"
   nao_quero_jogar = gets.strip
   nao_quero_jogar.upcase == "N"
+end
+
+def ganhou
+    puts
+    puts "             OOOOOOOOOOO               "
+    puts "         OOOOOOOOOOOOOOOOOOO           "
+    puts "      OOOOOO  OOOOOOOOO  OOOOOO        "
+    puts "    OOOOOO      OOOOO      OOOOOO      "
+    puts "  OOOOOOOO  #   OOOOO  #   OOOOOOOO    "
+    puts " OOOOOOOOOO    OOOOOOO    OOOOOOOOOO   "
+    puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  "
+    puts "OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO  "
+    puts "OOOO  OOOOOOOOOOOOOOOOOOOOOOOOO  OOOO  "
+    puts " OOOO  OOOOOOOOOOOOOOOOOOOOOOO  OOOO   "
+    puts "  OOOO   OOOOOOOOOOOOOOOOOOOO  OOOO    "
+    puts "    OOOOO   OOOOOOOOOOOOOOO   OOOO     "
+    puts "      OOOOOO   OOOOOOOOO   OOOOOO      "
+    puts "         OOOOOO         OOOOOO         "
+    puts "             OOOOOOOOOOOO              "
+    puts
+    puts "               Acertou!                "
+    puts
 end
 
 nome = da_boas_vindas
