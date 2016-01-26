@@ -55,25 +55,39 @@ def verifica_se_acertou(numero_secreto, chute)
     return false
 end
 
-da_boas_vindas
-dificuldade = pede_dificuldade
-numero_secreto = sorteia_numero_secreto(dificuldade)
+def joga (nome, dificuldade)
+  numero_secreto = sorteia_numero_secreto(dificuldade)
 
-pontos_ate_agora = 1000
-limite_tentativas = 5
-chutes = []
-#total_de_chutes = 0
+  pontos_ate_agora = 1000
+  limite_tentativas = 5
+  chutes = []
+  #total_de_chutes = 0
 
-for tentativas in 1..limite_tentativas
-    chute = pede_um_numero chutes, tentativas, limite_tentativas
-    chutes << chute
+  for tentativas in 1..limite_tentativas
+      chute = pede_um_numero chutes, tentativas, limite_tentativas
+      chutes << chute
 
-    pontos_a_perder = (chute - numero_secreto).abs / 2.0
-    pontos_ate_agora -= pontos_a_perder
+      pontos_a_perder = (chute - numero_secreto).abs / 2.0
+      pontos_ate_agora -= pontos_a_perder
 
-    if verifica_se_acertou numero_secreto, chute
-       break
-    end
+      if verifica_se_acertou numero_secreto, chute
+         break
+      end
+
+      puts "Você ganhou #{pontos_ate_agora} pontos"
+  end
 end
 
-puts "Você ganhou #{pontos_ate_agora} pontos"
+def quer_jogar
+  puts "Deseja jogar novamente? (S/N)"
+  quer_jogar = gets.strip
+  quer_jogar.upcase == "S"
+
+end
+
+nome = da_boas_vindas
+dificuldade = pede_dificuldade
+while quer_jogar
+  joga nome, dificuldade
+end
+
