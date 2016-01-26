@@ -78,16 +78,18 @@ def joga (nome, dificuldade)
   end
 end
 
-def quer_jogar
+def nao_quer_jogar?
   puts "Deseja jogar novamente? (S/N)"
-  quer_jogar = gets.strip
-  quer_jogar.upcase == "S"
-
+  nao_quero_jogar = gets.strip
+  nao_quero_jogar.upcase == "N"
 end
 
 nome = da_boas_vindas
 dificuldade = pede_dificuldade
-while quer_jogar
+loop do
   joga nome, dificuldade
+  if nao_quer_jogar?
+    break
+  end
 end
 
