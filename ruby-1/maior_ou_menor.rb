@@ -82,9 +82,8 @@ def joga (nome, dificuldade)
       if verifica_se_acertou numero_secreto, chute
          break
       end
-
-      puts "Você ganhou #{pontos_ate_agora} pontos"
   end
+  puts "Você ganhou #{pontos_ate_agora} pontos"
 end
 
 def nao_quer_jogar?
