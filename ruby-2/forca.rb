@@ -38,9 +38,23 @@ def joga(nome)
    pontos_ate_agora = 0
 
    while erros < 5
-      chute = pede_um_chute erros, chutes
-      chutes << chute
+         chute = pede_um_chute erros, chutes
+         chutes << chute
 
+         chutou_uma_letra = chute.size == 1
+         if chutou_uma_letra
+         else
+               acertou = chute == palavra_secreta
+               if acertou
+                     puts "Parabéns! Acertou!"
+                     pontos_ate_agora += 100
+                     break
+               else
+                     puts "Que pena, errou"
+                     pontos_ate_agora -= 30
+                     erros += 1
+               end
+         end
    end
 
    puts "Você ganhou #{pontos_ate_agora} pontos."
@@ -48,7 +62,6 @@ def joga(nome)
 end
 
 nome = da_boas_vindas
-
 
 loop do
    joga nome
