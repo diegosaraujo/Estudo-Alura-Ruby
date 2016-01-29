@@ -40,9 +40,10 @@ def joga(nome)
    avisa_pontos_ganhos pontos_ate_agora
 end
 
-nome = da_boas_vindas
-
-loop do
-   joga nome
-   break if nao_quer_jogar?
+def jogo_da_forca
+   nome = da_boas_vindas
+   loop do
+      joga nome
+      break if nao_quer_jogar?
+   end
 end
