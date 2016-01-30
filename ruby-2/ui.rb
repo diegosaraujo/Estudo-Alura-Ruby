@@ -3,23 +3,32 @@ def avisa_chute_efetuado chute
 end
 
 def avisa_letra_nao_encontrada
-	puts "Letra não econtrada"	
+	puts "Letra não econtrada"
 end
 
 def avisa_letra_encontrada total_encontrado
-	puts "Letra encontrada #{total_encontrado} vezes." 
+	puts "Letra encontrada #{total_encontrado} vezes."
 end
 
 def avisa_acertou_palavra
-	puts "Parabéns! Acertou!"	
+	puts "Parabéns! Acertou!"
 end
 
 def avisa_errou_palavra
-	puts "Que pena, errou"	
+	puts "Que pena, errou"
 end
 
 def avisa_pontos_ganhos pontos_ate_agora
 	puts "Você ganhou #{pontos_ate_agora} pontos."
+end
+
+def avisa_escolhendo_palavra
+   puts "Escolhendo uma palavra secreta..."
+end
+
+def avisa_palavra_secreta palavra_secreta
+   puts "Palavra secreta com #{palavra_secreta.size} letras...Boa sorte!!"
+   palavra_secreta
 end
 
 def da_boas_vindas

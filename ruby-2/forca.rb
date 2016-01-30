@@ -1,5 +1,14 @@
 require_relative 'ui'
 
+def escolhe_palavra_secreta
+   avisa_escolhendo_palavra
+   texto = File.read("dicionario.txt")
+   todas_as_palavras = texto.split "\n"
+   numero_escolhido = rand(todas_as_palavras.size)
+   palavra_secreta = todas_as_palavras[numero_escolhido]
+   avisa_palavra_secreta palavra_secreta
+end
+
 def palavra_mascarada(chutes, palavra_secreta)
    mascara = ""
    for letra in palavra_secreta.chars
@@ -25,7 +34,7 @@ def pede_um_chute_valido(chutes, erros, mascara)
 end
 
 def joga(nome)
-   palavra_secreta = escolhe_palavra_secreta 
+   palavra_secreta = escolhe_palavra_secreta
    erros = 0
    chutes = []
    pontos_ate_agora = 0
