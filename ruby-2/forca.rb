@@ -21,6 +21,19 @@ def palavra_mascarada(chutes, palavra_secreta)
    mascara
 end
 
+def escolhe_palavra_secreta_sem_consumir_muita_memoria
+  avisa_escolhendo_palavra
+  arquivo = File.new("dicionario.txt")
+  quantidade_de_palavras = arquivo.gets.to_i
+  numero_escolhido = rand(quantidade_de_palavras)
+  for linha in 1..(numero_escolhido - 1)
+    arquivo.gets
+  end
+  palavra_secreta = arquivo.gets.strip.downcase
+  arquivo.close
+  avisa_palavra_secreta palavra_secreta
+end
+
 def pede_um_chute_valido(chutes, erros, mascara)
    cabecalho_de_tentativas chutes, erros, mascara
    loop do
@@ -34,7 +47,7 @@ def pede_um_chute_valido(chutes, erros, mascara)
 end
 
 def joga(nome)
-   palavra_secreta = escolhe_palavra_secreta
+   palavra_secreta = escolhe_palavra_secreta_sem_consumir_muita_memoria
    erros = 0
    chutes = []
    pontos_ate_agora = 0
