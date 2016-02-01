@@ -2,7 +2,6 @@ def avisa_campeao_atual dados
 	puts "Nosso campeão atual é #{dados[0]} com #{dados[1]} pontos."
 end
 
-
 def avisa_pontos_totais(pontos_totais)
 	puts "Você possui #{pontos_totais} pontos."
 end
@@ -41,6 +40,7 @@ def avisa_palavra_secreta palavra_secreta
 end
 
 def da_boas_vindas
+	 puts "/*****************/"
    puts "Bem-vindo ao jogo da forca"
    puts "Qual é o seu nome?"
    nome = gets.strip
