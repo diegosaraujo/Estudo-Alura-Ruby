@@ -8,13 +8,10 @@ end
 
 def encontra_jogador(mapa)
    caracter_do_heroi = "H"
-   for linha = 0..(mapa.size -1)
-         linha_atual = mapa[linha]
-         for coluna = 0..(linha_atual.size-1)
-               heroi_esta_aqui = linha_atual[coluna] == caracter_do_heroi
-                  if heroi_esta_aqui
-                     #achei a linha e a coluna
-                  end
+   mapa.each_with_index do |linha_atual, linha|
+         coluna_do_heroi = linha_atual.index caracter_do_heroi
+             if coluna_do_heroi
+                  return [linha, coluna_do_heroi]
             end
    end
    #não achei
@@ -24,9 +21,22 @@ def joga(nome)
   mapa = le_mapa 1
 
   while true
-     desenha mapa
-     direcao = pede_movimento
-  end
+         desenha mapa
+        direcao = pede_movimento
+        heroi = encontra_jogador mapa
+        mapa[heroi[0]] [heroi[1]] = " "
+        case direcao
+              when "W"
+                     heroi[0] -=1
+               when "S"
+                     heroi[0] +=1
+               when "A"
+                     heroi[1] -= 1
+               when "D"
+                     heroi[1] += 1
+            end
+            mapa[heroi[0]] [heroi[1]] = "H"
+   end
 end
 
 def inicia_fogefoge
