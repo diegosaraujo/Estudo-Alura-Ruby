@@ -14,4 +14,5 @@ end
 def pede_movimento
    puts "Para aonde deseja ir?"
    movimento = gets.strip
+   movimento.upcase
 end
